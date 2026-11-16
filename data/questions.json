@@ -1,0 +1,262 @@
+[
+  {
+    "mechanism": "sn1",
+    "question": "What is the overall kinetic order and rate law for an SN1 reaction?",
+    "options": [
+      "First-order: Rate = k[substrate]",
+      "Second-order: Rate = k[substrate][nucleophile]",
+      "Zero-order: Rate = k",
+      "Second-order: Rate = k[nucleophile]²"
+    ],
+    "answer": 0,
+    "explanation": "Because the slow, rate-determining step is the unimolecular ionization of the substrate into a carbocation, the rate depends solely on the substrate concentration: Rate = k[substrate].",
+    "source": "wiki/sn1.md"
+  },
+  {
+    "mechanism": "sn1",
+    "question": "Why does an SN1 reaction on a chiral tertiary carbon typically produce slightly more inverted product than retained product?",
+    "options": [
+      "The incoming nucleophile always attacks from the backside only",
+      "The departing leaving group shields the front face as an intimate ion pair",
+      "The carbocation undergoes spontaneous inversion before nucleophilic attack",
+      "Protic solvents preferentially block the top face of the molecule"
+    ],
+    "answer": 1,
+    "explanation": "In solution, the leaving group anion lingers near the face from which it departed as an intimate or solvent-separated ion pair, shielding that face and giving a slight excess (55-70%) of inversion.",
+    "source": "wiki/sn1.md"
+  },
+  {
+    "mechanism": "sn1",
+    "question": "Which of the following substrate classes is LEAST likely to undergo an SN1 reaction?",
+    "options": [
+      "tert-Butyl bromide (3°)",
+      "Benzyl bromide (benzylic)",
+      "Allyl bromide (allylic)",
+      "Methyl bromide (0°)"
+    ],
+    "answer": 3,
+    "explanation": "Methyl carbocations are extremely unstable and high in energy; therefore, methyl substrates never undergo SN1 under standard laboratory conditions.",
+    "source": "wiki/sn1.md"
+  },
+  {
+    "mechanism": "sn1",
+    "question": "Which solvent is most effective at promoting an SN1 reaction?",
+    "options": [
+      "Water or ethanol (polar protic)",
+      "Acetone (polar aprotic)",
+      "Dimethyl sulfoxide (DMSO)",
+      "Hexane (nonpolar)"
+    ],
+    "answer": 0,
+    "explanation": "Polar protic solvents (H₂O, EtOH) have high dielectric constants and hydrogen-bond donor capabilities that stabilize both the carbocation intermediate and the departing leaving group anion.",
+    "source": "wiki/sn1.md"
+  },
+  {
+    "mechanism": "sn1",
+    "question": "What structural rearrangement is a diagnostic hallmark of an SN1 reaction?",
+    "options": [
+      "Walden inversion of the stereocenter",
+      "1,2-Hydride or 1,2-methyl shifts to yield a more stable carbocation",
+      "Concerted syn-coplanar elimination",
+      "Ring contraction to alleviate angle strain"
+    ],
+    "answer": 1,
+    "explanation": "Because a discrete carbocation intermediate forms, 1,2-hydride or 1,2-alkyl shifts frequently occur if they convert a secondary carbocation into a more stable tertiary or resonance-stabilized cation.",
+    "source": "wiki/sn1.md"
+  },
+  {
+    "mechanism": "sn2",
+    "question": "What is the stereochemical outcome of an SN2 displacement at a chiral stereocenter?",
+    "options": [
+      "Complete racemization (50:50 mixture of enantiomers)",
+      "100% Inversion of configuration (Walden Inversion)",
+      "100% Retention of configuration",
+      "Formation of an equal mixture of diastereomers"
+    ],
+    "answer": 1,
+    "explanation": "The concerted backside attack mechanism (180° approach opposite the leaving group) forces all three non-reacting substituents to flip like an umbrella, producing 100% inversion of configuration.",
+    "source": "wiki/sn2.md"
+  },
+  {
+    "mechanism": "sn2",
+    "question": "What happens to the rate of an SN2 reaction if the concentration of the nucleophile is doubled while the substrate concentration is held constant?",
+    "options": [
+      "The rate quadruples",
+      "The rate doubles",
+      "The rate remains unchanged",
+      "The rate is halved"
+    ],
+    "answer": 1,
+    "explanation": "The SN2 rate law is Rate = k[substrate][nucleophile]. Since the reaction is first-order with respect to the nucleophile, doubling its concentration doubles the reaction rate.",
+    "source": "wiki/sn2.md"
+  },
+  {
+    "mechanism": "sn2",
+    "question": "Why is neopentyl bromide [(CH₃)₃CCH₂Br] remarkably unreactive toward SN2 despite being a primary (1°) alkyl halide?",
+    "options": [
+      "The primary carbocation is too difficult to form",
+      "Severe steric hindrance from the adjacent quaternary carbon blocks backside attack",
+      "Bromide is a very poor leaving group on primary carbons",
+      "The C-Br bond is unusually short and strong"
+    ],
+    "answer": 1,
+    "explanation": "Even though the electrophilic α-carbon is primary, the adjacent β-carbon carries three bulky methyl groups (the neopentyl effect) that physically crowd and shield the backside approach of the nucleophile.",
+    "source": "wiki/sn2.md"
+  },
+  {
+    "mechanism": "sn2",
+    "question": "Why do polar aprotic solvents such as DMSO, DMF, and acetone dramatically accelerate SN2 reactions?",
+    "options": [
+      "They strongly hydrogen-bond to the nucleophile, increasing its kinetic energy",
+      "They stabilize the carbocation intermediate by donating electron pairs",
+      "They solvate the counter-cations while leaving the nucleophilic anions 'naked' and unshielded",
+      "They lower the temperature needed for the reaction to reach equilibrium"
+    ],
+    "answer": 2,
+    "explanation": "Polar aprotic solvents lack O-H or N-H bonds and cannot form hydrogen bonds with anions. This leaves the nucleophile unsolvated ('naked') and energetically primed to attack the substrate.",
+    "source": "wiki/sn2.md"
+  },
+  {
+    "mechanism": "sn2",
+    "question": "Which of the following is the geometry of the central carbon in the SN2 transition state?",
+    "options": [
+      "Tetrahedral",
+      "Trigonal planar with an empty p orbital",
+      "Pentacoordinate trigonal bipyramidal",
+      "Octahedral"
+    ],
+    "answer": 2,
+    "explanation": "At the SN2 transition state, the central carbon is partially bonded to five groups in a trigonal bipyramidal arrangement: three planar equatorial R groups and two axial partial bonds (Nu and LG).",
+    "source": "wiki/sn2.md"
+  },
+  {
+    "mechanism": "e1",
+    "question": "Which product does Zaitsev's rule predict as the major product in an E1 elimination?",
+    "options": [
+      "The less substituted, terminal alkene (Hofmann product)",
+      "The more substituted, thermodynamically more stable alkene",
+      "The alkene with cis/Z geometry exclusively",
+      "The non-conjugated diene product"
+    ],
+    "answer": 1,
+    "explanation": "Zaitsev's rule states that elimination gives the more substituted alkene as the major product because greater alkyl substitution stabilizes the double bond via hyperconjugation and inductive donation.",
+    "source": "wiki/e1.md"
+  },
+  {
+    "mechanism": "e1",
+    "question": "How does increasing reaction temperature affect the competition between SN1 and E1 on a tertiary substrate in polar protic solvent?",
+    "options": [
+      "High temperature strongly favors E1 over SN1",
+      "High temperature strongly favors SN1 over E1",
+      "Temperature has no effect on the ratio of substitution to elimination",
+      "High temperature stops both reactions completely"
+    ],
+    "answer": 0,
+    "explanation": "Elimination produces three product particles from two reactant molecules (ΔS° > 0), whereas substitution produces only two. The -TΔS term makes elimination increasingly favorable at elevated temperatures.",
+    "source": "wiki/e1.md"
+  },
+  {
+    "mechanism": "e1",
+    "question": "What is the rate-determining step of an E1 reaction?",
+    "options": [
+      "Deprotonation of the β-hydrogen by the base",
+      "Heterolytic cleavage of the C-LG bond to form the carbocation",
+      "Formation of the C=C π bond",
+      "Protonation of the leaving group"
+    ],
+    "answer": 1,
+    "explanation": "The rate-determining step in E1 is identical to SN1: unimolecular ionization of the substrate via C-LG cleavage to produce the carbocation intermediate. Step 2 (deprotonation) is fast.",
+    "source": "wiki/e1.md"
+  },
+  {
+    "mechanism": "e1",
+    "question": "Is an E1 reaction stereospecific like an E2 reaction?",
+    "options": [
+      "Yes, it strictly requires an anti-periplanar conformation",
+      "Yes, it only produces the cis/Z isomer",
+      "No, free rotation in the carbocation intermediate allows both E and Z alkenes to form",
+      "Yes, it requires a syn-periplanar alignment of the β-H and carbocation"
+    ],
+    "answer": 2,
+    "explanation": "Because the carbocation intermediate is an open planar species capable of C-C bond rotation prior to deprotonation, E1 is non-stereospecific and produces mixtures of E and Z isomers (with the more stable E isomer predominating).",
+    "source": "wiki/e1.md"
+  },
+  {
+    "mechanism": "e1",
+    "question": "In the acid-catalyzed dehydration of cyclohexanol to cyclohexene (an E1 process), what is the purpose of adding sulfuric acid?",
+    "options": [
+      "It acts as a strong nucleophile to attack the α-carbon",
+      "It protonates the poor -OH leaving group to convert it into a good leaving group (-OH₂⁺)",
+      "It acts as a bulky base to force Hofmann elimination",
+      "It oxidizes the alcohol into a ketone"
+    ],
+    "answer": 1,
+    "explanation": "Hydroxide (-OH) is a strong base and poor leaving group. Acid protonates the hydroxyl group to form an alkyloxonium ion (-OH₂⁺), which departs readily as neutral water (H₂O) in the ionization step.",
+    "source": "wiki/e1.md"
+  },
+  {
+    "mechanism": "e2",
+    "question": "What geometric alignment between the β-hydrogen and the leaving group is strictly required for an E2 elimination?",
+    "options": [
+      "Anti-periplanar (180° dihedral angle)",
+      "Syn-periplanar (0° dihedral angle) exclusively",
+      "Gauche conformation (60° dihedral angle)",
+      "Perpendicular (90° dihedral angle)"
+    ],
+    "answer": 0,
+    "explanation": "E2 requires an anti-periplanar arrangement (180° dihedral angle) to allow optimal orbital overlap between the breaking C-H σ bond and the empty σ* antibonding orbital of the C-LG bond.",
+    "source": "wiki/e2.md"
+  },
+  {
+    "mechanism": "e2",
+    "question": "In a substituted cyclohexane ring, what conformational orientation must the leaving group and the β-hydrogen adopt to undergo E2 elimination?",
+    "options": [
+      "Both must be in equatorial positions",
+      "One must be axial and one must be equatorial",
+      "Both must be in trans-diaxial positions",
+      "Their positions on the ring do not matter"
+    ],
+    "answer": 2,
+    "explanation": "In cyclohexane chairs, an anti-periplanar 180° dihedral angle can only be achieved when both the β-hydrogen and the leaving group occupy adjacent axial positions (trans-diaxial conformation).",
+    "source": "wiki/e2.md"
+  },
+  {
+    "mechanism": "e2",
+    "question": "When 2-bromobutane is treated with potassium tert-butoxide (KOtBu), which alkene is the major product and why?",
+    "options": [
+      "2-Butene, because Zaitsev's rule always dominates regardless of base",
+      "1-Butene (Hofmann product), because the steric bulk of tBuO⁻ prevents access to the internal β-hydrogen",
+      "1,3-Butadiene, because two elimination steps occur in sequence",
+      "Isobutylene, because carbocation rearrangement takes place first"
+    ],
+    "answer": 1,
+    "explanation": "Potassium tert-butoxide is a sterically bulky base. Its steric bulk prevents it from reaching the more hindered internal β-hydrogen, so it abstracts the accessible terminal β-hydrogen to give 1-butene (Hofmann product).",
+    "source": "wiki/e2.md"
+  },
+  {
+    "mechanism": "e2",
+    "question": "What is the rate law for an E2 elimination reaction?",
+    "options": [
+      "Rate = k[substrate]",
+      "Rate = k[substrate][base]",
+      "Rate = k[base]",
+      "Rate = k[substrate]²[base]"
+    ],
+    "answer": 1,
+    "explanation": "Because E2 is bimolecular and concerted, both the substrate and the strong base participate in the single rate-determining transition state, yielding a second-order rate law: Rate = k[substrate][base].",
+    "source": "wiki/e2.md"
+  },
+  {
+    "mechanism": "e2",
+    "question": "Why do carbocation rearrangements NEVER occur in an E2 elimination?",
+    "options": [
+      "The strong base immediately quenches the carbocation",
+      "The reaction is concerted and forms no carbocation intermediate",
+      "The anti-periplanar geometry locks the alkyl groups in place permanently",
+      "Rearrangements are forbidden in elimination reactions by orbital symmetry"
+    ],
+    "answer": 1,
+    "explanation": "E2 is an elementary, single-step concerted process. All bond-breaking and bond-forming events occur simultaneously in one transition state, meaning no carbocation ever exists to undergo rearrangement.",
+    "source": "wiki/e2.md"
+  }
+]

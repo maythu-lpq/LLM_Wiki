@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Chemistry Q&amp;A Chatbot — Grounded Wiki Guide</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <span>⚗️ O-Chem Mechanism Hub</span>
+        <span class="brand-badge">Q&amp;A Chatbot</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="sn1.html">S<sub>N</sub>1</a></li>
+          <li><a href="sn2.html">S<sub>N</sub>2</a></li>
+          <li><a href="e1.html">E1</a></li>
+          <li><a href="e2.html">E2</a></li>
+          <li><a href="predictor.html">Predictor</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="chat.html" class="active">Q&amp;A Chat</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &rsaquo; <span>Interactive Tools</span> &rsaquo; <span>Q&amp;A Chatbot</span>
+    </div>
+
+    <div class="header-box">
+      <div class="source-cite">📖 Grounded Retriever: <code>wiki/index.md</code> &bull; Mode A Local RAG Engine</div>
+      <h1>Organic Chemistry Q&amp;A Chatbot</h1>
+      <p class="lead">Ask any mechanism question grounded strictly in the <code>wiki/</code> knowledge base with source citations.</p>
+    </div>
+
+    <!-- Quick Question Suggestions -->
+    <div style="margin-bottom: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">
+      💡 Suggested Questions:
+    </div>
+    <div class="chat-suggestions">
+      <button class="chat-pill" onclick="askSuggested('How do I decide between SN2 and E2?')">⚖️ How to decide between SN2 and E2?</button>
+      <button class="chat-pill" onclick="askSuggested('Why does SN1 cause racemization?')">🔄 Why does SN1 cause racemization?</button>
+      <button class="chat-pill" onclick="askSuggested('What is the stereochemical requirement for E2 elimination?')">📐 Stereochemical requirement for E2?</button>
+      <button class="chat-pill" onclick="askSuggested('How does temperature affect E1 versus SN1?')">🌡️ How does temperature affect E1 vs SN1?</button>
+      <button class="chat-pill" onclick="askSuggested('Which solvents favor SN2 and why?')">🧪 Solvents favoring SN2?</button>
+      <button class="chat-pill" onclick="askSuggested('What is Zaitsev\'s rule versus Hofmann orientation?')">🌿 Zaitsev vs. Hofmann orientation?</button>
+    </div>
+
+    <!-- Chat Card -->
+    <div class="chat-card">
+      <div class="chat-header-bar">
+        <div class="chat-status ready" id="chat-status">
+          <strong>Mode A:</strong> Knowledge base active
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-subtle);">
+          Strictly grounded in <code>wiki/*.md</code>
+        </div>
+      </div>
+
+      <!-- Messages Stream -->
+      <div class="chat-messages" id="chat-messages">
+        <!-- Initial Bot Greeting -->
+        <div class="chat-bubble chat-bot">
+          <p style="margin-bottom: 0.5rem;">
+            <strong>Hello! I am your Organic Chemistry Mechanism Tutor.</strong>
+          </p>
+          <p style="margin-bottom: 0.5rem;">
+            I retrieve and answer questions strictly grounded in the textbook notes stored in your 
+            <code>wiki/</code> knowledge base (covering <strong>S<sub>N</sub>1, S<sub>N</sub>2, E1, and E2</strong>).
+          </p>
+          <p style="margin-bottom: 0;">
+            Type a question below or click one of the suggested prompts above!
+          </p>
+        </div>
+      </div>
+
+      <!-- Input Form -->
+      <form id="chat-form" class="chat-input-bar">
+        <input 
+          type="text" 
+          id="chat-input" 
+          class="chat-input" 
+          placeholder="Ask a question (e.g. 'Explain Walden inversion in SN2' or 'Why are polar aprotic solvents best?')..." 
+          autocomplete="off"
+          required
+        >
+        <button type="submit" class="chat-send-btn">Ask</button>
+      </form>
+    </div>
+
+    <!-- Explanatory Card -->
+    <section class="card">
+      <h2>How the Grounded Chatbot Works (AGENTS.md Section 8)</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+        <div style="background: var(--surface-alt); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+          <h4 style="color: var(--primary); margin-bottom: 0.4rem;">Mode A: Client-Side RAG</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+            Automatically parses all mechanism files listed in <code>wiki/index.md</code>, divides them into semantic sections by <code>##</code> headings, and ranks the most relevant chunks.
+          </p>
+        </div>
+        <div style="background: var(--surface-alt); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+          <h4 style="color: var(--primary); margin-bottom: 0.4rem;">Source Citations</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+            Every response is paired with a direct citation link (e.g. <code>Source: wiki/sn2.md › Stereochemistry</code>) linking straight to the corresponding interactive mechanism page.
+          </p>
+        </div>
+        <div style="background: var(--surface-alt); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+          <h4 style="color: var(--primary); margin-bottom: 0.4rem;">Grounded Boundary</h4>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">
+            If information is not present in the wiki, the engine replies: <em>"This is not in the wiki yet. Suggested: add it to wiki/&lt;file&gt;.md."</em> to prevent hallucinations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>Organic Chemistry Reaction Mechanism Wiki &bull; Grounded in Clayden, McMurry, and Wade</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+        <a href="../index.html">Home</a> &bull;
+        <a href="sn1.html">S<sub>N</sub>1</a> &bull;
+        <a href="sn2.html">S<sub>N</sub>2</a> &bull;
+        <a href="e1.html">E1</a> &bull;
+        <a href="e2.html">E2</a> &bull;
+        <a href="predictor.html">Predictor</a> &bull;
+        <a href="quiz.html">Quiz</a> &bull;
+        <a href="compare.html">Compare</a> &bull;
+        <a href="chat.html">Q&amp;A Chat</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="../assets/config.js"></script>
+  <script src="../assets/app.js"></script>
+  <script src="../assets/chat.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+    });
+  </script>
+</body>
+</html>

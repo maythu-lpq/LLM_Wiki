@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Chemistry Mechanism Hub — SN1, SN2, E1, E2</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="brand">
+        <span>⚗️ O-Chem Mechanism Hub</span>
+        <span class="brand-badge">Wiki v2.0</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/sn1.html">S<sub>N</sub>1</a></li>
+          <li><a href="pages/sn2.html">S<sub>N</sub>2</a></li>
+          <li><a href="pages/e1.html">E1</a></li>
+          <li><a href="pages/e2.html">E2</a></li>
+          <li><a href="pages/predictor.html">Predictor</a></li>
+          <li><a href="pages/quiz.html">Quiz</a></li>
+          <li><a href="pages/compare.html">Compare</a></li>
+          <li><a href="pages/chat.html">Q&amp;A Chat</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Live Search -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="source-cite" style="border-radius: 9999px; padding: 0.35rem 0.85rem; font-weight: 600;">🎓 Academic Learning Resource &bull; Clayden / McMurry / Wade Standard</div>
+      <h1>Organic Reaction Mechanisms</h1>
+      <p>
+        Master the four foundational mechanisms of aliphatic substitution and elimination: 
+        <strong>S<sub>N</sub>1, S<sub>N</sub>2, E1, and E2</strong>. Features interactive reaction profiles, 
+        curved-arrow electron-flow diagrams, reaction predictor, 20-question quiz, and side-by-side comparator.
+      </p>
+
+      <!-- Live Search Bar -->
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" class="search-input" placeholder="Search mechanisms, kinetics, stereochemistry, solvents..." autocomplete="off">
+        <div id="search-results" class="search-results-dropdown"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Interactive Tools Bar -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 3rem;">
+      <a href="pages/predictor.html" style="text-decoration: none;">
+        <div class="card" style="padding: 1.25rem; margin-bottom: 0; border-left: 4px solid var(--accent); transition: transform 0.2s ease;">
+          <h3 style="margin: 0 0 0.25rem; color: var(--accent); font-size: 1.1rem;">🧪 Reaction Predictor &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Input your substrate, reagent, and conditions to predict the dominant mechanism with wiki citations.</p>
+        </div>
+      </a>
+
+      <a href="pages/quiz.html" style="text-decoration: none;">
+        <div class="card" style="padding: 1.25rem; margin-bottom: 0; border-left: 4px solid var(--primary-light); transition: transform 0.2s ease;">
+          <h3 style="margin: 0 0 0.25rem; color: var(--primary-light); font-size: 1.1rem;">📝 Mechanism Quiz (20 Qs) &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Test your exam readiness with 5 vetted questions per mechanism and instant explanations.</p>
+        </div>
+      </a>
+
+      <a href="pages/compare.html" style="text-decoration: none;">
+        <div class="card" style="padding: 1.25rem; margin-bottom: 0; border-left: 4px solid var(--e1-color); transition: transform 0.2s ease;">
+          <h3 style="margin: 0 0 0.25rem; color: var(--e1-color); font-size: 1.1rem;">⚖️ Side-by-Side Comparator &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Compare S_N1 vs S_N2, S_N2 vs E2, or any two mechanisms across 14 chemical dimensions.</p>
+        </div>
+      </a>
+
+      <a href="pages/chat.html" style="text-decoration: none;">
+        <div class="card" style="padding: 1.25rem; margin-bottom: 0; border-left: 4px solid var(--e2-color); transition: transform 0.2s ease;">
+          <h3 style="margin: 0 0 0.25rem; color: var(--e2-color); font-size: 1.1rem;">💬 Grounded Q&amp;A Chat &rarr;</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">Ask questions answered strictly from the wiki notes with citations and zero hallucinations.</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Core Mechanism Cards -->
+    <h2 class="section-title">Core Mechanisms</h2>
+    <p class="section-desc">Explore step-by-step pathways, energy coordinates, transition states, and stereochemistry.</p>
+
+    <div class="mechanism-grid">
+      <!-- SN1 Card -->
+      <div class="mechanism-card sn1">
+        <div class="card-header">
+          <div class="card-code">S<sub>N</sub>1</div>
+          <span class="type-pill">Substitution</span>
+        </div>
+        <div class="card-subtitle">Unimolecular Nucleophilic Substitution</div>
+        <p class="card-body">
+          A stepwise mechanism initiated by heterolytic cleavage of the C–LG bond, generating a planar carbocation intermediate followed by nucleophilic capture from either face.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-label">Kinetics</span> <span class="feature-val">Rate = <em>k</em>[R–LG]</span></li>
+          <li><span class="feature-label">Steps</span> <span class="feature-val">2 (Ionization &amp; Capture)</span></li>
+          <li><span class="feature-label">Intermediate</span> <span class="feature-val"><span class="tag-badge tag-yes">Carbocation (sp<sup>2</sup>)</span></span></li>
+          <li><span class="feature-label">Stereochemistry</span> <span class="feature-val">Racemization (± ion-pair excess)</span></li>
+          <li><span class="feature-label">Best Substrate</span> <span class="feature-val">3° &gt;&gt; 2° (never 1° or CH<sub>3</sub>)</span></li>
+        </ul>
+        <a href="pages/sn1.html" class="card-action">Study S<sub>N</sub>1 Mechanism &rarr;</a>
+      </div>
+
+      <!-- SN2 Card -->
+      <div class="mechanism-card sn2">
+        <div class="card-header">
+          <div class="card-code">S<sub>N</sub>2</div>
+          <span class="type-pill">Substitution</span>
+        </div>
+        <div class="card-subtitle">Bimolecular Nucleophilic Substitution</div>
+        <p class="card-body">
+          A concerted, single-step backside attack where bond formation and bond cleavage occur simultaneously via a trigonal bipyramidal pentacoordinate transition state.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-label">Kinetics</span> <span class="feature-val">Rate = <em>k</em>[R–LG][Nu<sup>−</sup>]</span></li>
+          <li><span class="feature-label">Steps</span> <span class="feature-val">1 (Concerted)</span></li>
+          <li><span class="feature-label">Intermediate</span> <span class="feature-val"><span class="tag-badge tag-no">None (1 TS<sup>‡</sup>)</span></span></li>
+          <li><span class="feature-label">Stereochemistry</span> <span class="feature-val">100% Inversion (Walden)</span></li>
+          <li><span class="feature-label">Best Substrate</span> <span class="feature-val">CH<sub>3</sub> &gt; 1° &gt; 2° (never 3°)</span></li>
+        </ul>
+        <a href="pages/sn2.html" class="card-action">Study S<sub>N</sub>2 Mechanism &rarr;</a>
+      </div>
+
+      <!-- E1 Card -->
+      <div class="mechanism-card e1">
+        <div class="card-header">
+          <div class="card-code">E1</div>
+          <span class="type-pill">Elimination</span>
+        </div>
+        <div class="card-subtitle">Unimolecular Elimination</div>
+        <p class="card-body">
+          A stepwise elimination sharing the carbocation intermediate with S<sub>N</sub>1. A weak base abstracts a β-proton in the fast second step, generating the most stable Zaitsev alkene.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-label">Kinetics</span> <span class="feature-val">Rate = <em>k</em>[R–LG]</span></li>
+          <li><span class="feature-label">Steps</span> <span class="feature-val">2 (Ionization &amp; Deprotonation)</span></li>
+          <li><span class="feature-label">Intermediate</span> <span class="feature-val"><span class="tag-badge tag-yes">Carbocation (sp<sup>2</sup>)</span></span></li>
+          <li><span class="feature-label">Regiochemistry</span> <span class="feature-val">Zaitsev (more substituted)</span></li>
+          <li><span class="feature-label">Competitor</span> <span class="feature-val">Competes with S<sub>N</sub>1 (heat favors E1)</span></li>
+        </ul>
+        <a href="pages/e1.html" class="card-action">Study E1 Mechanism &rarr;</a>
+      </div>
+
+      <!-- E2 Card -->
+      <div class="mechanism-card e2">
+        <div class="card-header">
+          <div class="card-code">E2</div>
+          <span class="type-pill">Elimination</span>
+        </div>
+        <div class="card-subtitle">Bimolecular Elimination</div>
+        <p class="card-body">
+          A concerted, single-step reaction in which a strong base abstracts a β-proton simultaneously as the leaving group departs, demanding a strict anti-periplanar 180° geometry.
+        </p>
+        <ul class="feature-list">
+          <li><span class="feature-label">Kinetics</span> <span class="feature-val">Rate = <em>k</em>[R–LG][Base]</span></li>
+          <li><span class="feature-label">Steps</span> <span class="feature-val">1 (Concerted)</span></li>
+          <li><span class="feature-label">Intermediate</span> <span class="feature-val"><span class="tag-badge tag-no">None (1 TS<sup>‡</sup>)</span></span></li>
+          <li><span class="feature-label">Stereochemistry</span> <span class="feature-val">Anti-periplanar (180° diaxial)</span></li>
+          <li><span class="feature-label">Regiochemistry</span> <span class="feature-val">Zaitsev (small base) / Hofmann (bulky)</span></li>
+        </ul>
+        <a href="pages/e2.html" class="card-action">Study E2 Mechanism &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Master Comparison Table -->
+    <h2 class="section-title">Comprehensive Comparison Table</h2>
+    <p class="section-desc">Side-by-side analysis of kinetics, reaction coordinates, requirements, and selectivity.</p>
+
+    <div class="table-section">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th style="color: var(--sn1-color);">S<sub>N</sub>1</th>
+            <th style="color: var(--sn2-color);">S<sub>N</sub>2</th>
+            <th style="color: var(--e1-color);">E1</th>
+            <th style="color: var(--e2-color);">E2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Molecularity</td>
+            <td>Unimolecular</td>
+            <td>Bimolecular</td>
+            <td>Unimolecular</td>
+            <td>Bimolecular</td>
+          </tr>
+          <tr>
+            <td>Rate Law</td>
+            <td>Rate = <em>k</em>[R–LG]</td>
+            <td>Rate = <em>k</em>[R–LG][Nu<sup>−</sup>]</td>
+            <td>Rate = <em>k</em>[R–LG]</td>
+            <td>Rate = <em>k</em>[R–LG][Base]</td>
+          </tr>
+          <tr>
+            <td>Number of Steps</td>
+            <td>2 steps (Ionization &rarr; Attack)</td>
+            <td>1 step (Concerted backside)</td>
+            <td>2 steps (Ionization &rarr; Deprotonation)</td>
+            <td>1 step (Concerted elimination)</td>
+          </tr>
+          <tr>
+            <td>Intermediates</td>
+            <td><span class="tag-badge tag-yes">Carbocation (sp<sup>2</sup> planar)</span></td>
+            <td><span class="tag-badge tag-no">None (Trigonal bipyramidal TS<sup>‡</sup>)</span></td>
+            <td><span class="tag-badge tag-yes">Carbocation (sp<sup>2</sup> planar)</span></td>
+            <td><span class="tag-badge tag-no">None (Coplanar TS<sup>‡</sup>)</span></td>
+          </tr>
+          <tr>
+            <td>Substrate Reactivity</td>
+            <td>3° &gt;&gt; 2° &gt; 1° (unreactive)</td>
+            <td>CH<sub>3</sub> &gt; 1° &gt; 2° &gt;&gt; 3° (blocked)</td>
+            <td>3° &gt;&gt; 2° &gt; 1° (unreactive)</td>
+            <td>3° &gt; 2° &gt; 1°</td>
+          </tr>
+          <tr>
+            <td>Nucleophile / Base</td>
+            <td>Weak Nu acceptable (H<sub>2</sub>O, ROH)</td>
+            <td>Strong, polarizable Nu (I<sup>−</sup>, CN<sup>−</sup>, RS<sup>−</sup>)</td>
+            <td>Weak base (H<sub>2</sub>O, EtOH)</td>
+            <td>Strong base (OH<sup>−</sup>, EtO<sup>−</sup>, <em>t</em>-BuO<sup>−</sup>)</td>
+          </tr>
+          <tr>
+            <td>Optimal Solvent</td>
+            <td>Polar Protic (H<sub>2</sub>O, MeOH, EtOH)</td>
+            <td>Polar Aprotic (DMSO, DMF, Acetone)</td>
+            <td>Polar Protic (H<sub>2</sub>O, EtOH)</td>
+            <td>Polar Aprotic or Protic (w/ strong base)</td>
+          </tr>
+          <tr>
+            <td>Stereochemistry</td>
+            <td>Racemization (slight excess inversion)</td>
+            <td>100% Inversion (Walden Inversion)</td>
+            <td>Non-stereospecific (<em>E</em>/<em>Z</em> mixture)</td>
+            <td>Anti-periplanar (stereospecific)</td>
+          </tr>
+          <tr>
+            <td>Regiochemistry</td>
+            <td>N/A (substitution)</td>
+            <td>N/A (substitution)</td>
+            <td>Zaitsev rule (more stable alkene)</td>
+            <td>Zaitsev (small base) / Hofmann (bulky base)</td>
+          </tr>
+          <tr>
+            <td>Rearrangements?</td>
+            <td>Possible (hydride / alkyl shifts)</td>
+            <td>Never (no carbocation)</td>
+            <td>Possible (hydride / alkyl shifts)</td>
+            <td>Never (no carbocation)</td>
+          </tr>
+          <tr>
+            <td>Temperature Effect</td>
+            <td>Favored at low/moderate temp</td>
+            <td>Favored at low/moderate temp</td>
+            <td>High temperature favors E1 over S<sub>N</sub>1</td>
+            <td>High temperature favors E2 over S<sub>N</sub>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Organic Chemistry Reaction Mechanism Wiki &amp; Hub &bull; Grounded in Clayden, McMurry, and Wade.</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="pages/sn1.html">S<sub>N</sub>1 Page</a> &bull; 
+      <a href="pages/sn2.html">S<sub>N</sub>2 Page</a> &bull; 
+      <a href="pages/e1.html">E1 Page</a> &bull; 
+      <a href="pages/e2.html">E2 Page</a> &bull;
+      <a href="pages/predictor.html">Predictor</a> &bull;
+      <a href="pages/quiz.html">Quiz</a> &bull;
+      <a href="pages/compare.html">Compare</a> &bull;
+      <a href="pages/chat.html">Q&amp;A Chat</a>
+    </p>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

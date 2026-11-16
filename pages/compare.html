@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanism Comparator — Side-by-Side Analysis</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <span>⚗️ O-Chem Mechanism Hub</span>
+        <span class="brand-badge">Comparator</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="sn1.html">S<sub>N</sub>1</a></li>
+          <li><a href="sn2.html">S<sub>N</sub>2</a></li>
+          <li><a href="e1.html">E1</a></li>
+          <li><a href="e2.html">E2</a></li>
+          <li><a href="predictor.html">Predictor</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="compare.html" class="active">Compare</a></li>
+          <li><a href="chat.html">Q&amp;A Chat</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &rsaquo; <span>Interactive Tools</span> &rsaquo; <span>Side-by-Side Comparator</span>
+    </div>
+
+    <div class="header-box">
+      <div class="source-cite">📖 Data Source: <code>data/mechanisms.json</code> &bull; Grounded in <code>wiki/*.md</code></div>
+      <h1>Mechanism Comparator</h1>
+      <p class="lead">Select any two organic chemistry reaction mechanisms to compare kinetics, transition states, and selectivity side-by-side.</p>
+    </div>
+
+    <!-- Comparison Selectors -->
+    <section class="card">
+      <h2>Select Two Mechanisms</h2>
+      <div class="compare-selector">
+        <div class="compare-col">
+          <h3>Mechanism 1</h3>
+          <div class="form-group">
+            <select id="mech-1-select" onchange="renderComparison()">
+              <option value="sn1">S_N1 (Unimolecular Substitution)</option>
+              <option value="sn2" selected>S_N2 (Bimolecular Substitution)</option>
+              <option value="e1">E1 (Unimolecular Elimination)</option>
+              <option value="e2">E2 (Bimolecular Elimination)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="compare-col">
+          <h3>Mechanism 2</h3>
+          <div class="form-group">
+            <select id="mech-2-select" onchange="renderComparison()">
+              <option value="sn1">S_N1 (Unimolecular Substitution)</option>
+              <option value="sn2">S_N2 (Bimolecular Substitution)</option>
+              <option value="e1">E1 (Unimolecular Elimination)</option>
+              <option value="e2" selected>E2 (Bimolecular Elimination)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Output Container -->
+      <div id="comparison-output" class="table-section" style="padding: 0; box-shadow: none; border: none; margin-bottom: 0;">
+        <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+          Loading mechanism comparison data...
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Insights Section -->
+    <section class="card">
+      <h2>Classic Mechanistic Competitions</h2>
+      <div class="grid-2">
+        <div class="factor-pill">
+          <h4>S<sub>N</sub>2 vs. E2 (Bimolecular Rivalry)</h4>
+          <p>Both require strong reagents. S<sub>N</sub>2 wins on methyl/1° substrates with unhindered nucleophiles. E2 wins on 3° substrates, with bulky bases (KOtBu), or at high temperatures.</p>
+        </div>
+        <div class="factor-pill">
+          <h4>S<sub>N</sub>1 vs. E1 (Unimolecular Solvolysis)</h4>
+          <p>Both proceed through the exact same carbocation intermediate formed in the slow rate-determining step. Moderate temperature favors S<sub>N</sub>1; heat favors E1 due to favorable entropy.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Organic Chemistry Reaction Mechanism Wiki &bull; Interactive Comparator Tool</p>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderComparison();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Predictor — Organic Chemistry Mechanism Hub</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <span>⚗️ O-Chem Mechanism Hub</span>
+        <span class="brand-badge">Predictor</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="sn1.html">S<sub>N</sub>1</a></li>
+          <li><a href="sn2.html">S<sub>N</sub>2</a></li>
+          <li><a href="e1.html">E1</a></li>
+          <li><a href="e2.html">E2</a></li>
+          <li><a href="predictor.html" class="active">Predictor</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="chat.html">Q&amp;A Chat</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &rsaquo; <span>Interactive Tools</span> &rsaquo; <span>Reaction Predictor</span>
+    </div>
+
+    <div class="header-box">
+      <div class="source-cite">📖 Grounded Knowledge: <code>wiki/index.md</code>, <code>wiki/sn1.md</code>, <code>wiki/sn2.md</code>, <code>wiki/e1.md</code>, <code>wiki/e2.md</code></div>
+      <h1>Reaction Mechanism Predictor</h1>
+      <p class="lead">Select substrate, nucleophile/base, solvent, and temperature parameters to deduce the dominant pathway.</p>
+    </div>
+
+    <section class="card">
+      <h2>Input Reaction Parameters</h2>
+      
+      <form id="predictor-form" class="predictor-form" onsubmit="event.preventDefault(); runPrediction();">
+        <!-- 1. Substrate -->
+        <div class="form-group">
+          <label for="substrate-select">1. Substrate Class (α-Carbon):</label>
+          <select id="substrate-select" onchange="runPrediction()">
+            <option value="methyl">Methyl (CH₃–LG)</option>
+            <option value="primary">Primary (1°, RCH₂–LG)</option>
+            <option value="secondary" selected>Secondary (2°, R₂CH–LG)</option>
+            <option value="tertiary">Tertiary (3°, R₃C–LG)</option>
+          </select>
+        </div>
+
+        <!-- 2. Reagent -->
+        <div class="form-group">
+          <label for="reagent-select">2. Nucleophile / Base:</label>
+          <select id="reagent-select" onchange="runPrediction()">
+            <option value="strong_base_small" selected>Strong Base / Small Nu (OH⁻, NaOEt)</option>
+            <option value="strong_base_bulky">Strong Bulky Base (KOtBu, LDA, DBU)</option>
+            <option value="strong_nuc_weak_base">Strong Nu / Weak Base (I⁻, CN⁻, RS⁻, N₃⁻)</option>
+            <option value="weak_nuc_weak_base">Weak Nu / Weak Base (H₂O, MeOH, EtOH)</option>
+          </select>
+        </div>
+
+        <!-- 3. Solvent -->
+        <div class="form-group">
+          <label for="solvent-select">3. Solvent Type:</label>
+          <select id="solvent-select" onchange="runPrediction()">
+            <option value="polar_aprotic">Polar Aprotic (DMSO, DMF, Acetone)</option>
+            <option value="polar_protic" selected>Polar Protic (H₂O, EtOH, MeOH)</option>
+            <option value="nonpolar">Nonpolar (Hexane, Et₂O)</option>
+          </select>
+        </div>
+
+        <!-- 4. Temperature -->
+        <div class="form-group">
+          <label for="temp-select">4. Reaction Temperature:</label>
+          <select id="temp-select" onchange="runPrediction()">
+            <option value="low" selected>Low / Ambient Temperature (25°C)</option>
+            <option value="high">High Temperature (Heat / Reflux &gt; 80°C)</option>
+          </select>
+        </div>
+      </form>
+
+      <!-- Output Container -->
+      <div id="prediction-result" class="prediction-result" style="display: block;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.85rem; text-transform: uppercase; font-weight: 700; color: var(--text-muted);">Predicted Primary Pathway</span>
+          <span id="result-source" class="source-cite" style="margin-bottom: 0;">wiki/e2.md</span>
+        </div>
+        <div id="result-badge" class="result-badge e2" style="background: var(--e2-bg); color: var(--e2-color); border: 2px solid var(--e2-color);">
+          Dominant Mechanism: E2
+        </div>
+
+        <div id="result-explanation" class="result-explanation">
+          Loading prediction...
+        </div>
+
+        <div class="grid-2" style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+          <div>
+            <div style="font-weight: 700; font-size: 0.85rem; color: var(--primary);">Stereochemical Outcome:</div>
+            <div id="result-stereochem" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">Anti-periplanar geometry required</div>
+          </div>
+          <div>
+            <div style="font-weight: 700; font-size: 0.85rem; color: var(--primary);">Regiochemical Outcome:</div>
+            <div id="result-regiochem" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 0.2rem;">Zaitsev Product (more substituted alkene)</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border); font-size: 0.85rem;">
+          <strong>Competing Reaction:</strong> <span id="result-competing" style="color: var(--text-muted);">S_N2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Flowchart Guide Card -->
+    <section class="card">
+      <h2>Mechanistic Decision Logic</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+        This prediction follows the exact decision algorithm from <code>wiki/index.md</code>:
+      </p>
+      <ol style="margin-left: 1.5rem; line-height: 1.8; font-size: 0.925rem; color: var(--text);">
+        <li><strong>Substrate Sterics:</strong> Methyl is strictly S<sub>N</sub>2; 3° substrates completely block S<sub>N</sub>2 (E2 with strong base, S<sub>N</sub>1/E1 with weak base).</li>
+        <li><strong>Base Strength vs. Nucleophilicity:</strong> Bulky bases (KOtBu) always enforce E2 (Hofmann product). Good nucleophiles that are weak bases (I⁻, RS⁻, CN⁻) enforce S<sub>N</sub>2.</li>
+        <li><strong>Temperature (Entropy):</strong> Elevated temperature favors elimination (E1/E2) over substitution because $\Delta S^\circ &gt; 0$.</li>
+        <li><strong>Solvent:</strong> Polar protic promotes carbocation ionization (S<sub>N</sub>1/E1); polar aprotic keeps anions unshielded, favoring S<sub>N</sub>2.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>Organic Chemistry Reaction Mechanism Wiki &bull; Interactive Predictor Tool</p>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    function runPrediction() {
+      const substrate = document.getElementById('substrate-select').value;
+      const reagent = document.getElementById('reagent-select').value;
+      const solvent = document.getElementById('solvent-select').value;
+      const temp = document.getElementById('temp-select').value;
+
+      const res = predictReaction(substrate, reagent, solvent, temp);
+      
+      const badge = document.getElementById('result-badge');
+      badge.textContent = `Dominant Mechanism: ${res.primary}`;
+      badge.className = `result-badge ${res.primary.toLowerCase()}`;
+      
+      // Dynamic mechanism styling
+      if (res.primary === "SN1") {
+        badge.style.background = "var(--sn1-bg)";
+        badge.style.color = "var(--sn1-color)";
+        badge.style.borderColor = "var(--sn1-color)";
+      } else if (res.primary === "SN2") {
+        badge.style.background = "var(--sn2-bg)";
+        badge.style.color = "var(--sn2-color)";
+        badge.style.borderColor = "var(--sn2-color)";
+      } else if (res.primary === "E1") {
+        badge.style.background = "var(--e1-bg)";
+        badge.style.color = "var(--e1-color)";
+        badge.style.borderColor = "var(--e1-color)";
+      } else if (res.primary === "E2") {
+        badge.style.background = "var(--e2-bg)";
+        badge.style.color = "var(--e2-color)";
+        badge.style.borderColor = "var(--e2-color)";
+      } else {
+        badge.style.background = "var(--surface-alt)";
+        badge.style.color = "var(--text-muted)";
+        badge.style.borderColor = "var(--border)";
+      }
+
+      document.getElementById('result-explanation').textContent = res.explanation;
+      document.getElementById('result-stereochem').textContent = res.stereochem || "N/A";
+      document.getElementById('result-regiochem').textContent = res.regiochem || "N/A";
+      document.getElementById('result-competing').textContent = res.competing;
+      document.getElementById('result-source').innerHTML = `Grounded Source: <code>${res.source}</code>`;
+    }
+
+    document.addEventListener('DOMContentLoaded', runPrediction);
+  </script>
+</body>
+</html>

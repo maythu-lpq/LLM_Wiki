@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechanism Quiz &amp; Knowledge Check — Organic Chemistry Mechanism Hub</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="brand">
+        <span>⚗️ O-Chem Mechanism Hub</span>
+        <span class="brand-badge">Quiz</span>
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="sn1.html">S<sub>N</sub>1</a></li>
+          <li><a href="sn2.html">S<sub>N</sub>2</a></li>
+          <li><a href="e1.html">E1</a></li>
+          <li><a href="e2.html">E2</a></li>
+          <li><a href="predictor.html">Predictor</a></li>
+          <li><a href="quiz.html" class="active">Quiz</a></li>
+          <li><a href="compare.html">Compare</a></li>
+          <li><a href="chat.html">Q&amp;A Chat</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a> &rsaquo; <span>Interactive Tools</span> &rsaquo; <span>Mechanism Quiz</span>
+    </div>
+
+    <div class="header-box">
+      <div class="source-cite">📖 20 Verified Questions Grounded in <code>data/questions.json</code> and <code>wiki/*.md</code></div>
+      <h1>Organic Mechanism Quiz</h1>
+      <p class="lead">Test your understanding of S<sub>N</sub>1, S<sub>N</sub>2, E1, and E2 kinetics, stereochemistry, and transition states.</p>
+    </div>
+
+    <!-- Score Status Banner -->
+    <div class="score-banner">
+      <div id="score-text">Score: <strong>0</strong> / 0 answered (20 Questions Total)</div>
+      <div style="width: 140px; height: 10px; background: var(--surface); border-radius: 9999px; overflow: hidden; border: 1px solid var(--border);">
+        <div id="score-bar" style="width: 0%; height: 100%; background: var(--primary-light); transition: width 0.3s ease;"></div>
+      </div>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="quiz-controls">
+      <button class="filter-btn active" onclick="switchFilter('all', this)">All Mechanisms (20)</button>
+      <button class="filter-btn" onclick="switchFilter('sn1', this)">S<sub>N</sub>1 Only (5)</button>
+      <button class="filter-btn" onclick="switchFilter('sn2', this)">S<sub>N</sub>2 Only (5)</button>
+      <button class="filter-btn" onclick="switchFilter('e1', this)">E1 Only (5)</button>
+      <button class="filter-btn" onclick="switchFilter('e2', this)">E2 Only (5)</button>
+    </div>
+
+    <!-- Questions Container -->
+    <div id="quiz-questions-container">
+      <div style="padding: 2rem; text-align: center; color: var(--text-muted);">
+        Loading questions from data/questions.json...
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Organic Chemistry Reaction Mechanism Wiki &bull; Interactive Mechanism Quiz</p>
+  </footer>
+
+  <script src="../assets/app.js"></script>
+  <script>
+    let currentFilter = 'all';
+
+    function switchFilter(mech, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = mech;
+      renderQuiz(mech);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initQuiz();
+    });
+  </script>
+</body>
+</html>
